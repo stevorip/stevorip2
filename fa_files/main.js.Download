@@ -1,0 +1,95 @@
+const startCountdown = (countdownDate) => {
+    let x = setInterval(function () {
+        let now = new Date().getTime();
+
+        let distance = new Date(countdownDate.date).getTime() - now;
+
+        let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        const element = document.getElementById('countdown-text');
+
+        element.innerHTML = `${countdownDate.type} in ${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+        if (distance < 0) {
+            element.classList.add('animate__animated', 'animate__bounceIn');
+            element.innerText = `${countdownDate.type} 🎉`;
+            element.addEventListener('animationend', () => {
+                element.classList.remove('animate__animated', 'animate__bounceIn');
+            })
+
+            clearInterval(x);
+
+            setTimeout(() => {
+                countdown();
+            }, 10000)
+        }
+    }, 1000);
+}
+
+const countdown = () => {
+    let now = new Date();
+
+    let dates = [
+        {
+            date: `Januar 1, ${now.getFullYear() + 1} 00:00:00`,
+            dateDone: `Januar 1, ${now.getFullYear() + 1} 23:59:60`,
+            type: 'New Year'
+        },
+        {
+            date: `October 31, ${now.getFullYear()} 00:00:00`,
+            dateDone: `October 31, ${now.getFullYear()} 23:59:60`,
+            type: 'Halloween'
+        },
+        {
+            date: `November 1, ${now.getFullYear()} 00:00:00`,
+            dateDone: `November 1, ${now.getFullYear()} 23:59:60`,
+            type: 'NNN (No Nut November)'
+        },
+        {
+            date: `September 17, ${now.getFullYear()} 00:00:00`,
+            dateDone: `September 17, ${now.getFullYear()} 23:59:60`,
+            type: 'Birthday'
+        },
+        {
+            date: `December 24, ${now.getFullYear()} 00:00:00`,
+            dateDone: `December 24, ${now.getFullYear()} 23:59:60`,
+            type: 'Christmas'
+        }
+    ];
+
+    dates = dates.filter(d => (new Date(d.date) > Date.now() || new Date(d.dateDone) > Date.now()));
+    let datesMap = dates.map(d => Math.abs(new Date() - new Date(d.date).getTime()));
+    let date = dates[datesMap.indexOf(Math.min(...datesMap))];
+
+    startCountdown(date);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    countdown();
+});
+
+const title = document.title;
+let i = title.length;
+
+setInterval(() => {
+        document.title = title.substring(0, i + 1);
+        if (i == 0) {
+                direction = 1;
+        } else if (i == title.length) {
+                direction = -1;
+        }
+        i += direction;
+}, 300);
+
+var video = document.getElementById("vid");
+video.volume = 1;
+
+function play() {
+    const video = document.getElementById("vid");
+    video.play();
+    const e = document.getElementById("enter");
+    e.parentNode.removeChild(e);
+}
