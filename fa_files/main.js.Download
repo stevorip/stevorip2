@@ -34,29 +34,9 @@ const countdown = () => {
 
     let dates = [
         {
-            date: `Januar 1, ${now.getFullYear() + 1} 00:00:00`,
-            dateDone: `Januar 1, ${now.getFullYear() + 1} 23:59:60`,
-            type: 'New Year'
-        },
-        {
-            date: `October 31, ${now.getFullYear()} 00:00:00`,
-            dateDone: `October 31, ${now.getFullYear()} 23:59:60`,
-            type: 'Halloween'
-        },
-        {
-            date: `November 1, ${now.getFullYear()} 00:00:00`,
-            dateDone: `November 1, ${now.getFullYear()} 23:59:60`,
-            type: 'NNN (No Nut November)'
-        },
-        {
-            date: `September 17, ${now.getFullYear()} 00:00:00`,
-            dateDone: `September 17, ${now.getFullYear()} 23:59:60`,
+            date: `March 7, ${now.getFullYear() + 1} 00:00:00`,
+            dateDone: `March 7, ${now.getFullYear() + 1} 23:59:60`,
             type: 'Birthday'
-        },
-        {
-            date: `December 24, ${now.getFullYear()} 00:00:00`,
-            dateDone: `December 24, ${now.getFullYear()} 23:59:60`,
-            type: 'Christmas'
         }
     ];
 
