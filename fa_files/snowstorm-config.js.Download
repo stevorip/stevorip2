@@ -7,7 +7,7 @@ snowStorm.useGPU = true;             // Enable transform-based hardware accelera
 snowStorm.className = null;          // CSS class name for further customization on snow elements
 snowStorm.excludeMobile = true;      // Snow is likely to be bad news for mobile phones' CPUs (and batteries.) By default, be nice.
 snowStorm.flakeBottom = null;        // Integer for Y axis snow limit, 0 or null for "full-screen" snow effect
-snowStorm.followMouse = true;        // Snow movement can respond to the user's mouse
+snowStorm.followMouse = false;        // Snow movement can respond to the user's mouse
 snowStorm.snowCharacter = '&bull;';  // &bull; = bullet, &middot; is square on some systems etc.
 snowStorm.snowStick = true;          // Whether or not snow should "stick" at the bottom. When off, will never collect.
 snowStorm.targetElement = null;      // element which snow will be appended to (null = document.body) - can be an element ID eg. 'myDiv', or a DOM node reference
@@ -16,7 +16,7 @@ snowStorm.useTwinkleEffect = false;  // Allow snow to randomly "flicker" in and 
 snowStorm.usePositionFixed = false;  // true = snow does not shift vertically when scrolling. May increase CPU load, disabled by default - if enabled, used only where supported
 snowStorm.usePixelPosition = false;  // Whether to use pixel values for snow top/left vs. percentages. Auto-enabled if body is position:relative or targetElement is specified.
 
-snowStorm.freezeOnBlur = true;       // Only snow when the window is in focus (foreground.) Saves CPU.
+snowStorm.freezeOnBlur = false;       // Only snow when the window is in focus (foreground.) Saves CPU.
 snowStorm.flakeLeftOffset = 0;       // Left margin/gutter space on edge of container (eg. browser window.) Bump up these values if seeing horizontal scrollbars.
 snowStorm.flakeRightOffset = 0;      // Right margin/gutter space on edge of container
 snowStorm.flakeWidth = 8;            // Max pixel width reserved for snow element
